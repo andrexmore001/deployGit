@@ -6,9 +6,9 @@ import { RuletaComponent } from './components/ruleta/ruleta.component';
 
 
 const routes: Routes = [
-  {path:'',component:UploadFilesComponent},
+  //{path:'',component:UploadFilesComponent},
   {path:'pdf',component:PdfViewComponent},
-  {path:'Ruleta',component:RuletaComponent}
+  {path:'',component:RuletaComponent}
 ];
 
 @NgModule({
