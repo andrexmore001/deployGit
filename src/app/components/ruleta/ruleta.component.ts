@@ -59,7 +59,7 @@ export class RuletaComponent implements OnInit {
     take(numElement)
   )
   .subscribe(divFilter=>{
-    const music = new Audio('./../../../assets/sonidoRuleta.mp3');
+    const music = new Audio('./assets/sonidoRuleta.mp3');
     music.play();
       if(this.ElementoActual){
         this.render.removeClass(this.ElementoActual,'Color');
@@ -78,12 +78,12 @@ export class RuletaComponent implements OnInit {
   }
   PasarImg(imagen:string){
     this.emocionCompare=imagen;
-    this.emocionSelectedImg=`./../../../assets/${imagen}.png`;
+    this.emocionSelectedImg=`./assets/${imagen}.png`;
     if(this.emocionCompare===this.emocionSelected){
-      const music = new Audio('./../../../assets/gameSuccess.mp3');
+      const music = new Audio('./assets/gameSuccess.mp3');
       music.play();
     }else{
-      const music = new Audio('./../../../assets/gameOver.mp3');
+      const music = new Audio('./assets/gameOver.mp3');
       music.play();
     }
   }
