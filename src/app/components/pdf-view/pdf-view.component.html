@@ -1,0 +1,35 @@
+<div class="row text-center">
+    <div class="col-sm-12 col-md-6 myprogress">
+        <div id="box2">
+            <button class="btn btn-success" (click)="file.click()">Select File to Upload</button>
+            <input id="file" #file type="file" (change)="onFileSelected($event)" accept=".pdf" multiple/>
+        </div>
+    </div>
+</div>
+<div class="row text-center">
+    <h3 *ngIf="!cargando">Nombre Documento: {{PdfName}}</h3>
+    <div class="col-sm-1 col-md-2 contentpages">
+        <div class="next" *ngIf="minPage">
+            <span class="material-icons posarrow left" (click)="paginacion(-1)">
+                    chevron_left
+            </span>
+            <input type="number" class="form-control PageNum" [(ngModel)]="PageAct" [min]="MinPage" [max]="maxPage" />/{{PageAll}}
+            <span class="material-icons posarrow right" (click)="paginacion(1)">
+                chevron_right
+            </span>
+        </div>
+        <div class="search" *ngIf="minPage">
+            <input type="text" (input)="search($event.target.value)"><br> {{mensajeWords}}
+        </div>
+    </div>
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" *ngIf="ispdfSrc" (on-progress)="onProgress($event)" (pageChange)="pageChange($event)" [show-borders]="true" [show-all]="true" [zoom]="0.9" [show-borders]="true" [(page)]="PageAct" (page-rendered)="pageRendered($event)"
+        (after-load-complete)="afterLoadComplete( $event)">
+
+    </pdf-viewer>
+</div>
+<div class="cargando" *ngIf="cargando">
+    Cargando...... {{totalCargado}}
+</div>
+<!-- 
+<google-map width="750px" height="450px" [center]="center" [zoom]="zoom">
+</google-map> -->

@@ -1,0 +1,105 @@
+body {
+    font-family: candara;
+    ;
+}
+
+.ruleta {
+    height: 100px;
+    color: white;
+    position: relative;
+}
+
+.Color {
+    opacity: 0.3;
+    /* transition: opacity 10s; */
+}
+
+img {
+    width: 200px;
+    height: 235px;
+}
+
+.left {
+    float: left;
+    width: 25%;
+}
+
+.right {
+    float: right;
+    width: 70%;
+}
+
+.chartreuse {
+    background-color: #7fff00;
+}
+
+.fuchsia {
+    background-color: #ff1aff;
+}
+
+.darkorange {
+    background-color: #ff8d1a;
+}
+
+.yellow {
+    background-color: #ffff1a;
+}
+
+.blue {
+    background-color: #1a1aff;
+}
+
+.springgreen {
+    background-color: #1aff8c;
+}
+
+.mytbn {
+    width: 33%;
+    padding: 1rem;
+    color: white;
+    margin: auto;
+    font-size: 34px;
+}
+
+.myIcon {
+    font-size: 50px;
+}
+
+.MyEmocion {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    font-size: 2rem;
+}
+
+.selectEmocion {
+    margin: auto;
+    padding: 1.3rem;
+    border-radius: 3px;
+    font-size: 37px;
+    color: white;
+}
+
+.divImg {
+    display: inline-block;
+}
+
+h2 {
+    color: #003d6f;
+    font-size: 35px;
+}
+
+.NotCongrat,
+.Congrat {
+    width: 40%;
+    margin: auto;
+    font-size: 34px;
+}
+
+.NotCongrat {
+    color: red;
+}
+
+.Congrat {
+    color: seagreen;
+}

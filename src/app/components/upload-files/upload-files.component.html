@@ -1,0 +1,67 @@
+<div id="wrap">
+    <div class="row">
+        <div class="col-sm-6 myprogress mt-4">
+            <div *ngFor="let progess of progressInfo">
+                <div class="progressub">
+                    {{progess.fileName}} {{progess.fileSize}}
+                    <div class="progress">
+                        <div [ngClass]="
+                        progess.value > 90 
+                        ? 'progress-bar progress-bar-striped progress-bar-animated bg-success':
+                        'progress-bar progress-bar-striped progress-bar-animated bg-warning'
+                         " role="progressbar" [style.width]="getProgreso(progess.value)">
+                            {{progess.value}}%
+                        </div>
+                    </div>
+                </div>
+                <div class="iconcare">
+                    <span *ngIf="progess.value==0; else ProgressSuc" class="material-icons red600">
+                        sentiment_very_dissatisfied
+                    </span>
+                    <ng-template #ProgressSuc>
+                        <span *ngIf="progess.value==100" class="material-icons blue600">
+                            sentiment_very_satisfied
+                        </span>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-sm-12 col-md-6 myprogress">
+            <div id="box2">
+                <button class="btn btn-success" (click)="fileInput.click()">Select File to Upload</button>
+                <input id="fileInput" #fileInput type="file" multiple (change)="selectFiles($event)" />
+                <span *ngIf="imageName">{{imageName}}</span>
+                <button id="uploadButton" class="btn btn-info" *ngIf="selectedFiles" [disabled]="!selectedFiles" (click)="uploadFiles()">
+                    Subir Archivos
+                </button>
+            </div>
+
+            <div id="box3">
+                <ol>
+                    <li *ngFor="let message of messages">{{message.mensaje}}</li>
+                </ol>
+                {{messageDelete}}
+            </div>
+            <div id="box4" *ngIf="(fileInfos | async)?.length">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Lista De Archivos
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li *ngFor="let file of fileInfos | async" class="list-group-item">
+                            <span>{{file.name}}</span>
+                            <!-- {{file | json}} -->
+                            <span (click)="deleteFile(file.id)" class="material-icons">delete</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner></ngx-spinner>
+<div #canva></div>
+<button (click)="down()">descarga</button>

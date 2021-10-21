@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-sm-12 text-center">
+            <button type="button" class="btn btn-info btn-lg mytbn" (click)="elementosRul()">
+                <div>
+                    <span class="material-icons left myIcon">
+                        play_circle
+                    </span>
+                </div> 
+                <div class="right">
+                    {{TextButton}}
+                </div> 
+            </button>
+            <div [class]="getClassActual()" *ngIf="ObsEnded">
+                {{emocionSelected}}
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5" #DivsRuleta>
+        <div *ngFor="let element of elementos;let i=index" [class]="getClass(i)">
+            <div class="MyEmocion">
+                {{element.valor}}
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mt-3 pt-4" *ngIf="ObsEnded">
+        <h2>Selecciona el emojis que corresponde a la emocion: {{emocionSelected | uppercase}}</h2>
+        <div class="Emogiactual text-center" *ngIf="emocionSelectedImg">
+            <div *ngIf="emocionCompare && emocionSelected && emocionCompare===emocionSelected;else error" class="alert alert-success Congrat" role="alert">
+                Excelente
+            </div>
+            <ng-template #error>
+                <div class="alert alert-danger NotCongrat" role="alert">
+                    Debes practicar mas
+                </div>
+            </ng-template>
+            <img [src]="EmocionActual">
+        </div>
+        <div class="ImageEmiciones">
+            <div class="col-sm-12 col-md-2 divImg" *ngFor="let element of elementos">
+                <img src="./../../../assets/{{element.valor}}.png" (click)="PasarImg(element.valor)">
+            </div>
+        </div>
+    </div>
+</div>

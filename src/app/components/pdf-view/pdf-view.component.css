@@ -1,0 +1,40 @@
+#file {
+    display: none !important;
+}
+
+.PageNum {
+    width: 35% !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-control {
+    border: 1px solid transparent !important;
+    display: inline-block !important;
+}
+
+.next,
+.contentpages {
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.posarrow {
+    position: absolute;
+    top: 5px;
+    font-size: 29px;
+    font-weight: 900;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
